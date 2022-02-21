@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
+import com.vanguardECommerce.VanguardItem.Item.Item;
+
 @SpringBootApplication
 public class VanguardItemApplication implements CommandLineRunner{
 	
@@ -19,6 +21,9 @@ public class VanguardItemApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception{
 		System.out.println("Connected SucessFully");
+		
+		Item item = new Item(123456, "Jacket", "Best For the cold", "S001", 2, 250, 300);
+		mongoTemplate.insert(item);
 	}
 
 }
