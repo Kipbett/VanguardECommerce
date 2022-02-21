@@ -2,15 +2,21 @@ package com.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document
+@Document(collection = "users")
 public class Users {
 	
 	@Id
 	private int id;
 	
+	@Field("name")
 	private String name;
+	
+	@Field("email")
 	private String email;
+	
+	@Field("password")
 	private String password;
 	public Users(int id, String name, String email, String password) {
 		super();
